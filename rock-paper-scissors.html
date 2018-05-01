@@ -85,10 +85,14 @@
         
         
         function playRound(userChoice, computerSelection) {
-            console.log(userChoice + " - " + computerSelection);
+            console.log(
+                `${userChoice} - ${computerSelection}`
+            );
+            //console.log(userChoice + " - " + computerSelection);
             document.getElementById('UserDiv').innerHTML = userChoice;
             document.getElementById('ComputerDiv').innerHTML = computerSelection;
             if (userChoice === "Rock" && computerSelection == "Rock" || userChoice === "Paper" && computerSelection === "Paper" || userChoice === "Scissors" && computerSelection === "Scissors") {
+                
                 console.log("it's a draw");
                 document.getElementById('messageID').innerHTML = "It's a draw";
             } else if (
