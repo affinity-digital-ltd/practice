@@ -1,51 +1,3 @@
-<script>
-    let arrRPS,
-    userChoice,
-    computerSelection,
-    userscore = 0, 
-    computerscore = 0;
-    
-    //Computer Selection 
-    function computerPlay() {
-        arrRPS = ["Rock", "Paper", "Scissors"]  
-        computerSelection = arrRPS[Math.floor(Math.random()*arrRPS.length)];    
-    }
-    
-    //User Selection 
-    function userSelection(e) {
-        e = e || window.event;
-        userChoice = e.srcElement.innerHTML;
-        computerPlay();
-        playRound(userChoice, computerSelection)
-    }
-    
-    
-    function playRound(userChoice, computerSelection) {
-        console.log(userChoice + " - " + computerSelection);
-        document.getElementById('UserDiv').innerHTML = userChoice;
-        document.getElementById('ComputerDiv').innerHTML = computerSelection;
-        if (userChoice === "Rock" && computerSelection == "Rock" || userChoice === "Paper" && computerSelection === "Paper" || userChoice === "Scissors" && computerSelection === "Scissors") {
-            console.log("it's a draw");
-            document.getElementById('messageID').innerHTML = "It's a draw";
-        } else if (
-            userChoice === "Rock" && computerSelection == "Scissors" || userChoice === "Paper" && computerSelection === "Rock" || userChoice === "Scissors" && computerSelection === "Paper"
-        ){
-                userscore ++;
-                console.log("You won!" + " score: " + userscore);
-                document.getElementById('messageID').innerHTML = "You Won!";
-        }
-        else if (
-            userChoice === "Scissors" && computerSelection === "Rock" || userChoice === "Rock" && computerSelection === "Paper" || userChoice === "Paper" && computerSelection === "Scissors"
-        ){
-            computerscore ++;
-            console.log("Computer is a winner" + " score: " + computerscore);
-            document.getElementById('messageID').innerHTML = "Computer Won!";
-        }   
-    }
-    
-
-
-</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,16 +14,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        .messageStyle{
+        .message-style{
             margin-top: 40px; 
             padding: 30px; 
             border: 20px solid red; 
             text-align: center;
         }
-        .titleStyle{
-            font-size: 150%; text-decoration: underline;
+        .title-style{
+            font-size: 150%; 
+            text-decoration: underline;
         }
-        .blink_me {
+        .blink-me {
             font-size: 4em;
             animation: blinker 1s linear infinite;
             color: red;
@@ -91,25 +44,77 @@
         <div class="col-md-12">
             <h1 style="color: red;">Rock Paper Scissors Game</h1>
             <p>Unit 1: assignment by Sheikh Muhammad Ali Rizwan</p> 
-            <button id="btnRock" class="btn btn-default" onclick="userSelection(event)" value="Rock">Rock</button>
-            <button id="btnPaper" class="btn btn-default" onclick="userSelection(event)" value="Paper">Paper</button>
-            <button id="btnScissors" class="btn btn-default" onclick="userSelection(event)" value="Scissors">Scissors</button>
+            <button id="btnRock" class="btn btn-default" onclick="userSelection()" value="Rock">Rock</button>
+            <button id="btnPaper" class="btn btn-default" onclick="userSelection()" value="Paper">Paper</button>
+            <button id="btnScissors" class="btn btn-default" onclick="userSelection()" value="Scissors">Scissors</button>
         </div>
     
         <div class="col-md-6">
             <h2>Your Choice</h2>
-            <div id="UserDiv" class="titleStyle"></div>
+            <div id="UserDiv" class="title-style"></div>
         </div>
         <div class="col-md-6">
             <h2>Computer Choice</h2>
-            <div id="ComputerDiv" class="titleStyle"></div>
+            <div id="ComputerDiv" class="title-style"></div>
         </div>
 
-        <div class="col-md-12 messageStyle">
-            <p class="blink_me" id="messageID"></p>
+        <div class="col-md-12 message-style">
+            <p class="blink-me" id="messageID"></p>
         </div>
     </div>
+    <script>
+        let arrRPS,
+        userChoice,
+        computerSelection,
+        userscore = 0, 
+        computerscore = 0;
+        
+        //Computer Selection 
+        function computerPlay() {
+            arrRPS = ["Rock", "Paper", "Scissors"]  
+            computerSelection = arrRPS[Math.floor(Math.random()*arrRPS.length)];    
+        }
+        
+        //User Selection 
+        function userSelection() {
+            //e = e || window.event;
+            userChoice = event.srcElement.innerHTML;
+            computerPlay();
+            playRound(userChoice, computerSelection)
+        }
+        
+        
+        function playRound(userChoice, computerSelection) {
+            console.log(userChoice + " - " + computerSelection);
+            document.getElementById('UserDiv').innerHTML = userChoice;
+            document.getElementById('ComputerDiv').innerHTML = computerSelection;
+            if (userChoice === "Rock" && computerSelection == "Rock" || userChoice === "Paper" && computerSelection === "Paper" || userChoice === "Scissors" && computerSelection === "Scissors") {
+                console.log("it's a draw");
+                document.getElementById('messageID').innerHTML = "It's a draw";
+            } else if (
+                userChoice === "Rock" && computerSelection == "Scissors" || userChoice === "Paper" && computerSelection === "Rock" || userChoice === "Scissors" && computerSelection === "Paper"
+            ){
+                    userscore++;
+                    console.log(
+                        `You won! - score is ${userscore}`
+                    );
+                    
+                    //console.log("You won!" + " score: " + userscore);
+                    document.getElementById('messageID').innerHTML = `You won! - score is ${userscore}`;
+            }
+            else if (
+                userChoice === "Scissors" && computerSelection === "Rock" || userChoice === "Rock" && computerSelection === "Paper" || userChoice === "Paper" && computerSelection === "Scissors"
+            ){
+                computerscore++;
+                console.log(
+                    `Computer Won! - score is ${computerscore}`
+                );
+                document.getElementById('messageID').innerHTML = `Computer Won! - score is ${computerscore}`;
+            }   
+        }
+        
     
     
+    </script> 
 </body>
 </html>
