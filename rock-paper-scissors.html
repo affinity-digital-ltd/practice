@@ -24,18 +24,18 @@
         console.log(userChoice + " - " + computerSelection);
         document.getElementById('UserDiv').innerHTML = userChoice;
         document.getElementById('ComputerDiv').innerHTML = computerSelection;
-        if (userChoice === "Rock" && computerSelection == "Rock" || userChoice === "Paper" && computerSelection === "Paper" || userChoice == "Scissors" && computerSelection == "Scissors") {
+        if (userChoice === "Rock" && computerSelection == "Rock" || userChoice === "Paper" && computerSelection === "Paper" || userChoice === "Scissors" && computerSelection === "Scissors") {
             console.log("it's a draw");
             document.getElementById('messageID').innerHTML = "It's a draw";
         } else if (
-            userChoice === "Rock" && computerSelection == "Scissors" || userChoice === "Paper" && computerSelection === "Rock" || userChoice == "Scissors" && computerSelection == "Paper"
+            userChoice === "Rock" && computerSelection == "Scissors" || userChoice === "Paper" && computerSelection === "Rock" || userChoice === "Scissors" && computerSelection === "Paper"
         ){
                 userscore ++;
                 console.log("You won!" + " score: " + userscore);
                 document.getElementById('messageID').innerHTML = "You Won!";
         }
         else if (
-            userChoice === "Scissors" && computerSelection === "Rock" || userChoice === "Rock" && computerSelection === "Paper" || userChoice == "Paper" && computerSelection == "Scissors"
+            userChoice === "Scissors" && computerSelection === "Rock" || userChoice === "Rock" && computerSelection === "Paper" || userChoice === "Paper" && computerSelection === "Scissors"
         ){
             computerscore ++;
             console.log("Computer is a winner" + " score: " + computerscore);
@@ -57,7 +57,7 @@
 
      <!-- jQuery library -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-     
+
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
